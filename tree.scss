@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+$border_color: #ccc;
+$bar_width: 16px;
+$border_left_padding: 20px;
+$line_height: 2em;
+
+ul.tree, ul.tree ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    line-height: $line_height;
+    padding-left: $border_left_padding * 2;
+    position: relative;
+    &:not(:last-child):before {
+      content: "";
+      position: absolute;
+      left: $border_left_padding;
+      height: 100%;
+      border-left: 1px solid $border_color;
+    }
+    &:last-child:before {
+      content: " ";
+      position: absolute;
+      left: $border_left_padding;
+      height: $line_height / 2;
+      border-left: 1px solid $border_color;
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      top: $line_height / 2;
+      left: $border_left_padding;
+      width: $bar_width;
+      border-bottom: 1px solid $border_color;
+    }
+  }
+  // If you don't use FontAwesome, you can remove this section.
+  i.fa {
+    &.fa-globe {
+      color: royalblue;
+    }
+    &.fa-map-marker {
+      color: crimson;
+    }
+  }
+}
